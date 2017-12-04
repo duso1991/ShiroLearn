@@ -35,6 +35,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<!-- 包含EHCache缓存服务 -->
+		<dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context-support</artifactId>
+        </dependency>
 
 		<!-- JPA操作数据库. -->
 		<dependency>
@@ -71,6 +76,12 @@
 			<artifactId>shiro-spring</artifactId>
 			<version>1.4.0</version>
 		</dependency>
+		<!-- shiro缓存集成 -->
+		<dependency>
+    <groupId>org.apache.shiro</groupId>
+    <artifactId>shiro-ehcache</artifactId>
+    <version>1.4.0</version>
+</dependency>
 	</dependencies>
 
 	<build>

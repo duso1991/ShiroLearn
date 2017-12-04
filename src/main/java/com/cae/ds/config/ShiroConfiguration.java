@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -73,6 +74,7 @@ public class ShiroConfiguration {
 	public MyRealm getMyRealm(){
 		MyRealm myRealm=new MyRealm();
 		myRealm.setCredentialsMatcher(getHashedCredentialsMatcher());
+		myRealm.setCacheManager(getEhCacheManager());
 		return myRealm;
 		
 	}
@@ -92,4 +94,11 @@ public class ShiroConfiguration {
 	       return authorizationAttributeSourceAdvisor;  
 	    }  
 	
+	 @Bean
+	    public EhCacheManager getEhCacheManager(){
+	  
+	       EhCacheManager cacheManager = new EhCacheManager();
+	       cacheManager.setCacheManagerConfigFile("classpath:ehcache-shiro.xml");
+	       return cacheManager;
+	    }
 }

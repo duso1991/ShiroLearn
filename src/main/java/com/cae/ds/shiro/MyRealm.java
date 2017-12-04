@@ -76,16 +76,16 @@ public class MyRealm extends AuthorizingRealm{
     @Override  
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {  
       
-        
+    	 System.out.println("加入缓存");
        SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();  
        UserInfo userInfo  = (UserInfo)principals.getPrimaryPrincipal();  
 
        for(SysRole role:userInfo.getRoles()){  
            authorizationInfo.addRole(role.getRole());  
-           System.out.println(role.getRole());
+           
            for(SysPermission p:role.getPermissions()){  
               authorizationInfo.addStringPermission(p.getPermission());  
-              System.out.println(p.getPermission());
+              
            }  
        }       
        return authorizationInfo;  
