@@ -76,7 +76,7 @@ public class MyRealm extends AuthorizingRealm{
     @Override  
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {  
       
-    	 System.out.println("加入缓存");
+    	
        SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();  
        UserInfo userInfo  = (UserInfo)principals.getPrimaryPrincipal();  
 
